@@ -1,0 +1,8 @@
+module CounterExample {
+    resource struct Counter { count: u64 }
+
+    public fun increment(account: &signer) {
+        let counter = borrow_global_mut<Counter>(signer::address_of(account));
+        counter.count = counter.count + 1;
+    }
+}
